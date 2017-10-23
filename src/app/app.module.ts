@@ -7,6 +7,7 @@ import { LicensesComponent } from './licenses/licenses.component'
 
 import { LicenseService } from './services/license.service';
 import { LicenseDetailsComponent } from './licenses/license-details/license-details.component';
+import { LicenseListComponent } from './licenses/license-list/license-list.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LicenseDetailsComponent } from './licenses/license-details/license-deta
     AppComponent,
     LicensesComponent,
     LicenseDetailsComponent,
+    LicenseListComponent,
   ],
   imports: [
     BrowserModule,

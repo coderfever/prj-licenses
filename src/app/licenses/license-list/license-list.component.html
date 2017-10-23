@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-4">
+    <h4>License</h4>
+  </div>
+  <div class="col-xs-4">
+    <h4>Job #</h4>
+  </div>
+  <div class="col-xs-4">
+    <h4>Company</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-license-details
+      *ngFor="let license of licenses, let i = index"
+      [licenseDetails]="license"
+      [index]="i"
+      style="cursor: pointer;"
+    ></app-license-details>
+  </div>
+</div>
+<!-- <table class="table table-hover"
+      >
+  <thead>
+    <tr>
+      <th>License</th>
+      <th>Job #</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let license of licenses, let i = index">
+    <tr>
+      <app-license-details
+        [licenseDetails]="license"
+        [index]="i"
+      ></app-license-details>
+    </tr>
+
+  </tbody>
+</table> -->
