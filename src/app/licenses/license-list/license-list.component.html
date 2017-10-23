@@ -9,16 +9,20 @@
     <h4>Company</h4>
   </div>
 </div>
+
+
 <div class="row">
   <div class="col-xs-12">
-    <app-license-details
+    <app-license-item
       *ngFor="let license of licenses, let i = index"
       [licenseDetails]="license"
       [index]="i"
       style="cursor: pointer;"
-    ></app-license-details>
+    ></app-license-item>
   </div>
 </div>
+
+
 <!-- <table class="table table-hover"
       >
   <thead>

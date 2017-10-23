@@ -1,11 +1,30 @@
 <div class="row">
-  <div class="col-xs-4">
-    {{licenseDetails.licenseId}}
+  <div class="col-xs-12">
+    <h1>License: {{licenseDetail.licenseId}}</h1>
+    <h3>Job Number: {{ licenseDetail.job }}</h3>
   </div>
-  <div class="col-xs-4">
-    {{licenseDetails.job}}
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h4>License Options</h4>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let licOp of licenseDetail.licenseOptions">
+        {{ licOp }}
+      </li>
+    </ul>
   </div>
-  <div class="col-xs-4">
-    Company
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Notes</h4>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let note of licenseDetail.notes">
+        {{ note }}
+      </li>
+    </ul>
   </div>
 </div>
