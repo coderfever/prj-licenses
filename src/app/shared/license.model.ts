@@ -1,13 +1,15 @@
+import { LicenseOption } from './licenseOption.model';
+
 export class License {
   public licenseId: string;
   public job: number;
-  public licenseOptions: number[];
+  public licenseOptions: LicenseOption[];
   public notes: string[];
   public isDemo: boolean;
 
   constructor(licenseId: string,
               job: number,
-              licenseOptions: number[],
+              licenseOptions: LicenseOption[],
               notes: string[],
               isDemo: boolean
   ) {

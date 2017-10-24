@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { License } from '../../shared/license.model';
+
 import { LicenseService } from '../../services/license.service';
 
 import {ActivatedRoute, Router, Params} from '@angular/router';

@@ -11,7 +11,7 @@
     <ul class="list-group">
       <li class="list-group-item"
         *ngFor="let licOp of licenseDetail.licenseOptions">
-        {{ licOp }}
+        {{ licOp.licenseOption }} - Qty {{ licOp.licenseQty }}
       </li>
     </ul>
   </div>
@@ -21,9 +21,20 @@
   <div class="col-xs-12">
     <h4>Notes</h4>
     <ul class="list-group">
-      <li class="list-group-item"
+      <li class="list-group-item clearfix"
         *ngFor="let note of licenseDetail.notes">
         {{ note }}
+        <div class="btn-group pull-right" appDropdown>
+          <button class="btn btn-primary dropdown-toggle"
+                  type="button"
+                   >
+                  <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li>Delete</li>
+            <li>Edit</li>
+          </ul>
+        </div>
+
       </li>
     </ul>
   </div>

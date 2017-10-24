@@ -7,6 +7,8 @@ import { LicenseService } from './services/license.service';
 
 import {AppRoutingModule} from './app-routing.module'
 
+import { DropdownDirective } from './directives/dropdown.directive';
+
 import { AppComponent } from './app.component';
 import { LicensesComponent } from './licenses/licenses.component'
 import { LicenseDetailsComponent } from './licenses/license-details/license-details.component';
@@ -16,6 +18,7 @@ import { LicenseItemComponent } from './licenses/license-list/license-item/licen
 
 @NgModule({
   declarations: [
+    DropdownDirective,
     AppComponent,
     LicensesComponent,
     LicenseDetailsComponent,
