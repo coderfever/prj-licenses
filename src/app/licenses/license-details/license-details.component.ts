@@ -12,6 +12,7 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
 export class LicenseDetailsComponent implements OnInit {
   licenseDetail: License;
   id: number;
+  note: string
 
   constructor(private LicenseService: LicenseService,
               private route: ActivatedRoute,
@@ -25,6 +26,16 @@ export class LicenseDetailsComponent implements OnInit {
           this.licenseDetail = this.LicenseService.getLicense(this.id);
         }
       )
+  };
+
+  onAddNewNote(note: string) {
+    this.licenseDetail.notes.unshift(note)
+  }
+
+  onClickEdit(license: License, noteIndex: number) {
+    console.log(license, noteIndex)
+    this.note = this.LicenseService.getNote(license, noteIndex)
+    console.log(this.note)
   }
 
 }
