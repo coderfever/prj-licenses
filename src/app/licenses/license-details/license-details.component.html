@@ -42,9 +42,22 @@
 
     <ul class="list-group">
       <li class="list-group-item clearfix"
-        *ngFor="let note of licenseDetail.notes; let i = index">
-        {{ note }}
-        <div class="btn-group pull-right" appDropdown>
+        *ngFor="let noteDetail of licenseDetail.notes; let i = index">
+        {{ noteDetail.note }}
+        <hr style="margin:5px" />
+        <div style="font-size:80%">
+          {{noteDetail.author}}
+          <span style="border-left: 2px solid #cccccc; margin-left:5px; padding-left: 10px">
+            {{noteDetail.dateTime | amLocal | amDateFormat: 'YYYY/MM/DD HH:mm' }}
+          </span>
+
+          <fa [name]="'pencil'" [border]="true" [pull]="'right'" [size]=1></fa>
+          <fa [name]="'close'" [border]="true" [pull]="'right'" [size]=1></fa>
+        </div>
+
+
+
+        <!-- <div class="btn-group pull-right" appDropdown>
           <button class="btn btn-primary dropdown-toggle"
                   type="button"
                    >
@@ -54,7 +67,7 @@
             <button class="btn btn-primary"
                     (click)="onClickEdit(licenseDetail, i)">Edit</button>
           </ul>
-        </div>
+        </div> -->
 
       </li>
     </ul>
@@ -63,4 +76,8 @@
 
 <div>
   {{ d | amLocal | amDateFormat: 'YYYY/MM/DD HH:mm' }}
+
 </div>
+
+<i fa [name]="'rocket'"></i>
+<fa [name]="'rocket'"></fa>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
 
 import { MomentModule } from 'angular2-moment';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 import { LicenseService } from './services/license.service';
 
@@ -32,7 +33,8 @@ import { LicenseItemComponent } from './licenses/license-list/license-item/licen
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MomentModule
+    MomentModule,
+    Angular2FontawesomeModule
   ],
   providers: [ LicenseService ],
   bootstrap: [AppComponent]

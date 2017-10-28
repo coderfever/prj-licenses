@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import { License } from '../../shared/license.model';
+import { Note } from '../../shared/note.model';
 
 import { LicenseService } from '../../services/license.service';
 
@@ -13,7 +14,7 @@ export class LicenseDetailsComponent implements OnInit {
   licenseDetail: License;
   id: number;
   showForm: boolean = false;
-  note: string
+  note: Note;
   @ViewChild('noteInput') noteInputRef: ElementRef;
 
   d: any
@@ -47,9 +48,9 @@ export class LicenseDetailsComponent implements OnInit {
   }
 
   onClickEdit(license: License, noteIndex: number) {
-    console.log(license, noteIndex)
-    this.note = this.LicenseService.getNote(license, noteIndex)
-    console.log(this.note)
+    // console.log(license, noteIndex)
+    // this.note = this.LicenseService.getNote(license, noteIndex)
+    // console.log(this.note)
   }
 
 }

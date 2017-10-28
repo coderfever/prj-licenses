@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { License } from '../shared/license.model';
 import { LicenseOption } from '../shared/licenseOption.model';
+import { Note } from '../shared/note.model'
 
 @Injectable()
 export class LicenseService {
@@ -13,8 +14,11 @@ export class LicenseService {
                   new LicenseOption('BaseSoftware1',1),
                   new LicenseOption('AddonSoftware2',1)
                 ],
-                ['It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to usin',
-                 'Comment 2'],
+                [
+                  new Note('MH',
+                    'It is a long established fact that a reader will be distracted by the readable content of a page when looking at it',
+                    new Date('2017/09/09 01:00')),
+                ],
                 true),
     new License('A123002',
                 17002,
@@ -23,7 +27,11 @@ export class LicenseService {
                   new LicenseOption('AddonSoftware1',1),
                   new LicenseOption('AddonSoftware2',2)
                 ],
-                ['added'],
+                [
+                  new Note('MH',
+                    'It is a long established fact that a reader will be distracted by the readable content of a page when looking at it',
+                    new Date('2017/09/09 01:00')),
+                ],
                 false),
   ]
 
