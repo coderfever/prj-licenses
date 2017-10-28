@@ -31,7 +31,8 @@ import { LicenseItemComponent } from './licenses/license-list/license-item/licen
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MomentModule
   ],
   providers: [ LicenseService ],
   bootstrap: [AppComponent]
