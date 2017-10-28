@@ -40,8 +40,6 @@
       </div>
     </form>
 
-    {{ note }}
-
     <ul class="list-group">
       <li class="list-group-item clearfix"
         *ngFor="let note of licenseDetail.notes; let i = index">
@@ -61,4 +59,8 @@
       </li>
     </ul>
   </div>
+</div>
+
+<div>
+  {{ d | amLocal }}
 </div>

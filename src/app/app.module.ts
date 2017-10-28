@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
 
+import { MomentModule } from 'angular2-moment';
+
 import { LicenseService } from './services/license.service';
 
 import {AppRoutingModule} from './app-routing.module'

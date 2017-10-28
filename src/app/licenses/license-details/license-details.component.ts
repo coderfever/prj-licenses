@@ -16,9 +16,12 @@ export class LicenseDetailsComponent implements OnInit {
   note: string
   @ViewChild('noteInput') noteInputRef: ElementRef;
 
+  d: any
+
   constructor(private LicenseService: LicenseService,
               private route: ActivatedRoute,
-              private router: Router) {}
+              private router: Router,
+            ) { this.d = new Date()}
 
   ngOnInit() {
     this.route.params
@@ -38,6 +41,9 @@ export class LicenseDetailsComponent implements OnInit {
 
     this.showForm = false;
     this.noteInputRef.nativeElement.value = "";
+
+    this.d = this.d.getTime();
+    console.log(this.d)
   }
 
   onClickEdit(license: License, noteIndex: number) {
