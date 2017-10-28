@@ -5,6 +5,10 @@
   </div>
 </div>
 
+<hr />
+
+
+<!-- License  -->
 <div class="row">
   <div class="col-xs-12">
     <h4>License Options</h4>
@@ -17,9 +21,27 @@
   </div>
 </div>
 
+<!-- Notes  -->
 <div class="row">
   <div class="col-xs-12">
-    <h4>Notes <span><button class="btn" (click)="onAddNewNote('test string')">Add New</button></span></h4>
+    <h4>Notes <span><button class="btn" (click)="showForm=true">Add New</button></span></h4>
+
+    <form *ngIf="showForm">
+      <div clas="form-group">
+        <label for="noteTextArea">
+          Enter new note
+          <span class="pull-right">
+            <button class="btn btn-primary" (click)="onAddNewNote()">Save</button>
+            <button class="btn btn-danger" (click)="showForm=false">Cancel</button>
+          </span>
+
+        </label>
+        <textarea class="form-control" id="noteTextArea" rows="3" #noteInput></textarea>
+      </div>
+    </form>
+
+    {{ note }}
+
     <ul class="list-group">
       <li class="list-group-item clearfix"
         *ngFor="let note of licenseDetail.notes; let i = index">

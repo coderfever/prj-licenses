@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import { License } from '../../shared/license.model';
 
 import { LicenseService } from '../../services/license.service';
@@ -12,7 +12,9 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
 export class LicenseDetailsComponent implements OnInit {
   licenseDetail: License;
   id: number;
+  showForm: boolean = false;
   note: string
+  @ViewChild('noteInput') noteInputRef: ElementRef;
 
   constructor(private LicenseService: LicenseService,
               private route: ActivatedRoute,
@@ -28,8 +30,14 @@ export class LicenseDetailsComponent implements OnInit {
       )
   };
 
-  onAddNewNote(note: string) {
+
+  onAddNewNote() {
+    const note = this.noteInputRef.nativeElement.value;
+    console.log(note);
     this.licenseDetail.notes.unshift(note)
+
+    this.showForm = false;
+    this.noteInputRef.nativeElement.value = "";
   }
 
   onClickEdit(license: License, noteIndex: number) {
