@@ -5,6 +5,9 @@ import { Note } from '../../shared/note.model';
 import { LicenseService } from '../../services/license.service';
 
 import {ActivatedRoute, Router, Params} from '@angular/router';
+
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-license-details',
   templateUrl: './license-details.component.html',
@@ -15,14 +18,17 @@ export class LicenseDetailsComponent implements OnInit {
   id: number;
   showForm: boolean = false;
   note: Note;
+  authors: string[];
   @ViewChild('noteInput') noteInputRef: ElementRef;
 
-  d: any
+  date:moment.Moment;
 
   constructor(private LicenseService: LicenseService,
               private route: ActivatedRoute,
               private router: Router,
-            ) { this.d = new Date()}
+            ) {
+              this.authors=['MH', 'KH']
+            }
 
   ngOnInit() {
     this.route.params
@@ -37,14 +43,18 @@ export class LicenseDetailsComponent implements OnInit {
 
   onAddNewNote() {
     const note = this.noteInputRef.nativeElement.value;
-    console.log(note);
-    this.licenseDetail.notes.unshift(note)
+    const dateTime = moment();
+    console.log(dateTime)
+
+    const noteDetail = new Note('MH', note, dateTime);
+
+    this.licenseDetail.notes.unshift(noteDetail);
 
     this.showForm = false;
     this.noteInputRef.nativeElement.value = "";
 
-    this.d = this.d.getTime();
-    console.log(this.d)
+    console.log(note);
+    console.log(dateTime)
   }
 
   onClickEdit(license: License, noteIndex: number) {

@@ -3,6 +3,8 @@ import { License } from '../shared/license.model';
 import { LicenseOption } from '../shared/licenseOption.model';
 import { Note } from '../shared/note.model'
 
+import * as moment from 'moment';
+
 @Injectable()
 export class LicenseService {
   tempLicense: License
@@ -17,7 +19,7 @@ export class LicenseService {
                 [
                   new Note('MH',
                     'It is a long established fact that a reader will be distracted by the readable content of a page when looking at it',
-                    new Date('2017/09/09 01:00')),
+                    moment('2017/09/09 01:00', 'YYYY/MM/DD HH:mm')),
                 ],
                 true),
     new License('A123002',
@@ -30,7 +32,7 @@ export class LicenseService {
                 [
                   new Note('MH',
                     'It is a long established fact that a reader will be distracted by the readable content of a page when looking at it',
-                    new Date('2017/09/09 01:00')),
+                    moment('2017/09/09 01:00', 'YYYY/MM/DD HH:mm')),
                 ],
                 false),
   ]

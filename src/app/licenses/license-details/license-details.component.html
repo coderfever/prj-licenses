@@ -25,20 +25,32 @@
 <div class="row">
   <div class="col-xs-12">
     <h4>Notes <span><button class="btn" (click)="showForm=true">Add New</button></span></h4>
+      <div class="container" style="background-color:#cfcfcf; width: 100%" *ngIf="showForm">
+        <form>
+          <div class="form-group">
+              <label for="noteTextArea">
+                Enter note
+              </label>
+              <button class="btn-note" (click)="onAddNewNote()">
+                <fa [name]="'floppy-o'" [size]=1></fa>
+              </button>
+              <button class="btn-note" (click)="showForm=false">
+                <fa [name]="'close'" [size]=1>></fa>
+              </button>
+              <textarea class="form-control" id="noteTextArea" rows="3" #noteInput required></textarea>
+          </div>
 
-    <form *ngIf="showForm">
-      <div clas="form-group">
-        <label for="noteTextArea">
-          Enter new note
-          <span class="pull-right">
-            <button class="btn btn-primary" (click)="onAddNewNote()">Save</button>
-            <button class="btn btn-danger" (click)="showForm=false">Cancel</button>
-          </span>
-
-        </label>
-        <textarea class="form-control" id="noteTextArea" rows="3" #noteInput></textarea>
+          <div class="form-group">
+            <label for="author">Select author</label>
+            <select class="form-control" id="author" required #authorInput dropdown>
+              <option *ngFor="let author of authors" [value]="author">
+                 {{author}}
+              </option>
+            </select>
+          </div>
+        </form>
       </div>
-    </form>
+
 
     <ul class="list-group">
       <li class="list-group-item clearfix"
@@ -74,10 +86,48 @@
   </div>
 </div>
 
-<div>
-  {{ d | amLocal | amDateFormat: 'YYYY/MM/DD HH:mm' }}
 
-</div>
 
-<i fa [name]="'rocket'"></i>
-<fa [name]="'rocket'"></fa>
+
+    <!-- <div class="container" style="background-color:#gfgfgf; width: 100%">
+      <form *ngIf="showForm">
+        <div class="row">
+          <div class="col-xs-4">
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-8">
+              <label for="noteTextArea">
+                Enter new note
+              </label>
+            </div>
+            <div class="col-xs-1">
+              <button class="btn-note" (click)="onAddNewNote()">
+                <fa [name]="'floppy-o'" [size]=1></fa>
+              </button>
+            </div>
+            <div class="col-xs-1">
+              <button class="btn-note" (click)="showForm=false">
+                <fa [name]="'close'" [size]=1>></fa>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <textarea class="form-control" id="noteTextArea" rows="3" #noteInput></textarea>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="author">Select author</label>
+          <select class="form-control" id="author" required #authorInput dropdown>
+            <option *ngFor="let author of authors" [value]="author">
+               {{author}}
+            </option>
+          </select>
+        </div>
+      </form>
+    </div> -->
