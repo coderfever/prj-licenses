@@ -28,16 +28,21 @@
       <div class="container" style="background-color:#cfcfcf; width: 100%" *ngIf="showForm">
         <form>
           <div class="form-group">
-              <label for="noteTextArea">
+              <!-- <label for="noteTextArea">
                 Enter note
-              </label>
-              <button class="btn-note" (click)="onAddNewNote()">
-                <fa [name]="'floppy-o'" [size]=1></fa>
-              </button>
-              <button class="btn-note" (click)="showForm=false">
-                <fa [name]="'close'" [size]=1>></fa>
-              </button>
-              <textarea class="form-control" id="noteTextArea" rows="3" #noteInput required></textarea>
+              </label> -->
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-primary" type="button" (click)="onAddNewNote()">
+                  <fa [name]="'floppy-o'" [size]=1></fa>
+                </button>
+                <button class="btn btn-danger" type="button" (click)="showForm=false">
+                  <fa [name]="'close'" [size]=1>></fa>
+                </button>
+              </div>
+
+              <textarea class="form-control" id="noteTextArea" rows="3" #noteInput required
+                        placeholder="Enter new note"
+              ></textarea>
           </div>
 
           <div class="form-group">
