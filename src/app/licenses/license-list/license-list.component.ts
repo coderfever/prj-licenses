@@ -9,7 +9,7 @@ import { License } from '../../shared/license.model';
 })
 export class LicenseListComponent implements OnInit {
   @Input() licenseDetails: License;
-  @Input() index: number;
+  @Input() licenseIndex: number;
   licenses: License[];
 
   constructor(private LicenseService: LicenseService) { }

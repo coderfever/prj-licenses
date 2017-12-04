@@ -20,6 +20,7 @@ export class LicenseDetailsComponent implements OnInit {
   note: Note;
   authors: string[];
   @ViewChild('noteInput') noteInputRef: ElementRef;
+  @Input() licenseIndex: number;
 
   date:moment.Moment;
 
@@ -38,29 +39,26 @@ export class LicenseDetailsComponent implements OnInit {
           this.licenseDetail = this.LicenseService.getLicense(this.id);
         }
       )
-  };
-
+  }
 
   onAddNewNote() {
     const note = this.noteInputRef.nativeElement.value;
     const dateTime = moment();
-    console.log(dateTime)
-
     const noteDetail = new Note('MH', note, dateTime);
-
     this.licenseDetail.notes.unshift(noteDetail);
 
     this.showForm = false;
     this.noteInputRef.nativeElement.value = "";
-
-    console.log(note);
-    console.log(dateTime)
   }
 
-  onClickEdit(license: License, noteIndex: number) {
+  onEditNote(noteIndex: number) {
     // console.log(license, noteIndex)
     // this.note = this.LicenseService.getNote(license, noteIndex)
     // console.log(this.note)
+  }
+
+  onDeleteNote(noteIndex: number) {
+    this.LicenseService.deleteNote(this.id, noteIndex)
   }
 
 }

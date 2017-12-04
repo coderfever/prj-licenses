@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
-    <h1>License: {{licenseDetail.licenseId}}</h1>
-    <h3>Job Number: {{ licenseDetail.job }}</h3>
+    <h2>{{licenseDetail.licenseId}}</h2>
+    <h4>Job Number: {{ licenseDetail.job }}</h4>
   </div>
 </div>
 
@@ -15,11 +15,13 @@
     <ul class="list-group">
       <li class="list-group-item"
         *ngFor="let licOp of licenseDetail.licenseOptions">
-        {{ licOp.licenseOption }} - Qty {{ licOp.licenseQty }}
+        {{ licOp.licenseOption }} ({{ licOp.licenseQty }})
       </li>
     </ul>
   </div>
 </div>
+
+
 
 <!-- Notes  -->
 <div class="row">
@@ -59,7 +61,8 @@
 
     <ul class="list-group">
       <li class="list-group-item clearfix"
-        *ngFor="let noteDetail of licenseDetail.notes; let i = index">
+        *ngFor="let noteDetail of licenseDetail.notes;
+                let noteIndex = index">
         {{ noteDetail.note }}
         <hr style="margin:5px" />
         <div style="font-size:80%">
@@ -68,10 +71,18 @@
             {{noteDetail.dateTime | amLocal | amDateFormat: 'YYYY/MM/DD HH:mm' }}
           </span>
 
-          <fa [name]="'pencil'" [border]="true" [pull]="'right'" [size]=1></fa>
-          <fa [name]="'close'" [border]="true" [pull]="'right'" [size]=1></fa>
-        </div>
+          <div class="btn-group pull-right">
+            <button class="btn btn-info"
+                    (click)=onEditNote(noteIndex)>
+              <fa [name]="'pencil'"  [pull]="'right'" [size]=1></fa>
+            </button>
+            <button class="btn btn-danger"
+                    (click)="onDeleteNote(noteIndex)">
+              <fa [name]="'close'" [pull]="'right'" [size]=1></fa>
+            </button>
+          </div>
 
+        </div>
       </li>
     </ul>
   </div>

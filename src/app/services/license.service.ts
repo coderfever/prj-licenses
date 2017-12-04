@@ -7,7 +7,7 @@ import * as moment from 'moment';
 
 @Injectable()
 export class LicenseService {
-  tempLicense: License
+  li
 
   licenses: License[] = [
     new License('A123001',
@@ -48,6 +48,10 @@ export class LicenseService {
   getNote(license: License, noteIndex:number ) {
     // this.tempLicense = this.getLicense(licenseIndex)
     return license.notes[noteIndex]
+  }
+
+  deleteNote(licenseIndex: number, noteIndex: number) {
+    this.licenses[licenseIndex].notes.splice(noteIndex, 1)
   }
 
 }

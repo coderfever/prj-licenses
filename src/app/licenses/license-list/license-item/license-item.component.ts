@@ -8,7 +8,7 @@ import { License } from '../../../shared/license.model';
 })
 export class LicenseItemComponent implements OnInit {
   @Input() licenseDetails: License;
-  @Input() index: number;
+  @Input() licenseIndex: number;
 
   constructor() { }
 
