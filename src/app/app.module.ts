@@ -17,6 +17,7 @@ import { LicensesComponent } from './licenses/licenses.component'
 import { LicenseDetailsComponent } from './licenses/license-details/license-details.component';
 import { LicenseListComponent } from './licenses/license-list/license-list.component';
 import { LicenseItemComponent } from './licenses/license-list/license-item/license-item.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { LicenseItemComponent } from './licenses/license-list/license-item/licen
     LicenseDetailsComponent,
     LicenseListComponent,
     LicenseItemComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
